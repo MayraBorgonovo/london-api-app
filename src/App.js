@@ -6,6 +6,10 @@ import "./App.css";
 import Line from "./components/Line";
 import Layout from "./components/layout/Layout"
 
+
+//add refresh every 30 sec
+//add pages for results
+
 function App() {
   const [arrivals, setArrivals] = useState([]);
   const [lines, setLines] = useState([]);

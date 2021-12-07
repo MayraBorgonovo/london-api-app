@@ -9,7 +9,7 @@ const Header = () => {
         <img src={logo} alt="London Underground Logo" />
       </div>
       <div className={classes.welcome}>
-        <h1>London Underground Arrivals</h1>
+        <h1>Tube Arrivals</h1>
       </div>
     </header>
   );

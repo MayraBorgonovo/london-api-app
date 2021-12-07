@@ -1,13 +1,8 @@
-.categories,
-.subcategories {
+.lines {
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
   padding: 1rem 0;
-}
-
-.categoriesLabel {
-  text-align: left;
 }
 
 input[type="radio"] {
@@ -16,42 +11,76 @@ input[type="radio"] {
   width: 0;
 }
 
-.categories label {
+.lines label {
   display: inline-block;
-  padding: 1rem 2rem;
+  padding: 4em 3em;
+  min-width: 18em;
+  margin: .5em;
   font: inherit;
-  border-radius: 25px;
+  border-radius: 5px;
   cursor: pointer;
-  background: rgb(139 138 138 / 15%);
-}
- 
-.subcategories label {
-  font-size: 1.2rem !important;
-  display: inline-block;
-  padding: 1rem 2rem;
-  font: inherit;
-  border-radius: 25px;
-  cursor: pointer;
-}
-
-.subcategories svg {
-  font-size: 3.8rem !important;
-  display: block;
-  margin: 0 auto;
-  border-radius: 50%;
-  padding: .6rem;
-}
-
-.categories input[type="radio"]:checked + label,
-.categories label:hover,
-.categories input[type="radio"]:focus + label {
-  background: #0096FF;
   color: white;
+  font-weight: bold;
 }
 
-.subcategories input[type="radio"]:checked + label svg,
-.subcategories label svg:hover,
-.subcategories input[type="radio"]:focus + label svg {
-  background: #0096FF;
-  color: white;
+.lines div:nth-of-type(1) label {
+  background: #b36305;
+}
+
+.lines div:nth-of-type(2) label {
+  background: #e32017;
+}
+
+.lines div:nth-of-type(3) label {
+  background: #ffd300;
+}
+
+.lines div:nth-of-type(4) label {
+  background: #00782a;
+}
+
+.lines div:nth-of-type(5) label {
+  background: #f3a9bb;
+}
+
+.lines div:nth-of-type(6) label {
+  background: #a0a5a9;
+}
+
+.lines div:nth-of-type(7) label {
+  background: #9b0058;
+}
+
+.lines div:nth-of-type(8) label {
+  background: #000000;
+}
+
+.lines div:nth-of-type(9) label {
+  background: #003688;
+}
+
+.lines div:nth-of-type(10) label {
+  background: #0098d4;
+}
+
+.lines div:nth-of-type(11) label {
+  background: #95cdba;
+}
+
+.lines label:hover,
+.lines input[type="radio"]:focus + label {
+  transform: scale(1.05);
+  transition: 0.2s all;
+}
+
+
+@media screen and (max-width: 768px) {
+  .lines {
+    display: block;
+  }
+
+  .lines label {
+    width: 100%;
+    padding: 2.5em 3em;
+  }
 }
