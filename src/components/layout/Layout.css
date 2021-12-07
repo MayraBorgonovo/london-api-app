@@ -1,0 +1,7 @@
+main {
+  width: 95%;
+  max-width: 768px;
+  min-height: calc(100vh - 6.5rem);
+  margin: 0 auto;
+  position: relative;
+}

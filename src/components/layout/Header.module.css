@@ -1,0 +1,23 @@
+.header {
+  width: 95%;
+  max-width: 768px;
+  height: 6em;
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.header h1 {
+  font-size: 1.8em;
+  margin-left: 1em;
+}
+
+.logo {
+  height: 3.5em;
+}
+
+.logo img {
+  display: block;
+  height: 100%;
+}
