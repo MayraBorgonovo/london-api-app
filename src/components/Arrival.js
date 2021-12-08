@@ -1,17 +1,28 @@
-import React from 'react';
-
-import classes from './Arrival.module.css';
-
-
+import React from "react";
+import classes from "./Arrival.module.css";
 
 const Arrival = (props) => {
+  let timeToArrival = Math.round(props.timeToStation / 60) + "min";
+
+  if (timeToArrival === 0) {
+    timeToArrival = "Now";
+  }
+
+  if (timeToArrival < 0) {
+    timeToArrival = "Departed";
+  }
 
   return (
-    <li className={classes.movie}>
-      <h3>Location: {props.location}</h3>
-      <p>Destination: {props.destination}</p>
-      <p>Direction: {props.direction}</p>
-      <p>Arrives in: {props.arrivalTime}</p>
+    <li className={classes.arrival}>
+      <h2>{props.platformName}</h2>
+      <div className={classes.ctn}>
+        <div>
+          <h3>{props.destination}</h3>
+          <p className={classes.location}>{props.location}</p>
+        </div>
+        <p className={classes.time}>{timeToArrival}</p>
+      </div>
+      <p className={classes.line}>{props.name}</p>
     </li>
   );
 };

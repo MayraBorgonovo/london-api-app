@@ -1,29 +1,25 @@
 import React, { useState, useEffect, useCallback } from "react";
-
 import ArrivalsList from "./components/ArrivalsList";
 import LoadingSpinner from "./components/UI/LoadingSpinner";
-import "./App.css";
 import Line from "./components/Line";
 import Layout from "./components/layout/Layout"
-
-
-//add refresh every 30 sec
-//add pages for results
+import Modal from './components/UI/Modal';
 
 function App() {
   const [arrivals, setArrivals] = useState([]);
   const [lines, setLines] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [modalIsVisible, setModalIsVisible] = useState(false);
 
     //Get request to receive tube lines
-    const fetchStationsHandler = useCallback(async () => {
+    const fetchLinesHandler = useCallback(async () => {
       setIsLoading(true); 
       setError(null);
       try {
-        const response = await fetch(
-          "https://api.tfl.gov.uk/line/mode/tube"
-        ); 
+          const response = await fetch(
+            "https://api.tfl.gov.uk/line/mode/tube"
+          ); 
   
         if (!response.ok) {
           throw new Error(
@@ -52,8 +48,8 @@ function App() {
 
     // http requests are side effects, so we use useEffect to get the data on page load
   useEffect(() => {
-    fetchStationsHandler();
-  }, [fetchStationsHandler]);
+    fetchLinesHandler();
+  }, [fetchLinesHandler]);
 
   // Request selected line data
   const lineChangeHandler = async (line) => {
@@ -72,15 +68,12 @@ function App() {
   
         const data = await response.json();
   
-        // Only format and store the most recent 15 arrivals
         const loadedArrivals = [];
         for (const key in data) {
-          if(key < 15) {
             loadedArrivals.push({
               id: data[key].id + key,
               data: data[key],
             });
-          }
         }
   
         setArrivals(loadedArrivals); 
@@ -108,9 +101,9 @@ function App() {
   return (
     <Layout>
       <section>
-        <Line lines={lines} onChangeFilter={lineChangeHandler} />
+        <Line lines={lines} onChangeFilter={lineChangeHandler} onClick={() => setModalIsVisible(true)} />
       </section>
-      <section>{content}</section>
+      {modalIsVisible && <Modal onClose={() => setModalIsVisible(false)}>{content}</Modal>}
     </Layout>
   );
 }

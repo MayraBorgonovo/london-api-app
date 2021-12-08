@@ -1,6 +1,8 @@
 .lines {
   display: flex;
+  flex-direction: column;
   justify-content: space-evenly;
+  align-items: center;
   flex-wrap: wrap;
   padding: 1rem 0;
 }
@@ -13,42 +15,50 @@ input[type="radio"] {
 
 .lines label {
   display: inline-block;
-  padding: 4em 3em;
-  min-width: 18em;
-  margin: .5em;
+  padding: 1em 3em;
+  margin: .3em;
   font: inherit;
   border-radius: 5px;
   cursor: pointer;
   color: white;
   font-weight: bold;
+  font-size: 1.6em;
+  text-align: center;
 }
 
 .lines div:nth-of-type(1) label {
   background: #b36305;
+  box-shadow: inset -3px -3px 3px 0px #744205;
 }
 
 .lines div:nth-of-type(2) label {
   background: #e32017;
+  box-shadow: inset -3px -3px 3px 0px #92120b;
 }
 
 .lines div:nth-of-type(3) label {
   background: #ffd300;
+  box-shadow: inset -3px -3px 3px 0px #b89a03;
 }
 
 .lines div:nth-of-type(4) label {
   background: #00782a;
+  box-shadow: inset -3px -3px 3px 0px #01571f;
 }
 
 .lines div:nth-of-type(5) label {
   background: #f3a9bb;
+  box-shadow: inset -3px -3px 3px 0px #a36f7c;
 }
 
 .lines div:nth-of-type(6) label {
   background: #a0a5a9;
+  box-shadow: inset -3px -3px 3px 0px #6c6f72;
 }
 
 .lines div:nth-of-type(7) label {
   background: #9b0058;
+  box-shadow: inset -3px -3px 3px 0px rgb(109, 69, 79);
 }
 
 .lines div:nth-of-type(8) label {
@@ -57,20 +67,29 @@ input[type="radio"] {
 
 .lines div:nth-of-type(9) label {
   background: #003688;
+  box-shadow: inset -3px -3px 3px 0px #022458;
 }
 
 .lines div:nth-of-type(10) label {
   background: #0098d4;
+  box-shadow: inset -3px -3px 3px 0px #035c80;
 }
 
 .lines div:nth-of-type(11) label {
   background: #95cdba;
+  box-shadow: inset -3px -3px 3px 0px #4b7a6a;
 }
 
 .lines label:hover,
 .lines input[type="radio"]:focus + label {
   transform: scale(1.05);
   transition: 0.2s all;
+}
+
+@media screen and (min-width: 769px) {
+  .lines label {
+    min-width: 25em;
+  }
 }
 
 
@@ -80,7 +99,7 @@ input[type="radio"] {
   }
 
   .lines label {
-    width: 100%;
-    padding: 2.5em 3em;
+    min-width: none;
+    width: 98%;
   }
 }

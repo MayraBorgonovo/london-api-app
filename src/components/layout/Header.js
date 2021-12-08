@@ -10,6 +10,7 @@ const Header = () => {
       </div>
       <div className={classes.welcome}>
         <h1>Tube Arrivals</h1>
+        <p>London Undergound Arrival Updates</p>
       </div>
     </header>
   );

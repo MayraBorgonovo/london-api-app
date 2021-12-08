@@ -8,7 +8,7 @@ const Line = (props) => {
   return (
       <div className={classes.lines}>
         {props.lines.map((line) => (
-          <div key={line.id}>
+          <div key={line.id} onClick={props.onClick}>
             <input
               type="radio"
               id={line.id}
@@ -16,7 +16,7 @@ const Line = (props) => {
               value={line.id}
               onChange={dropdownChangeHandler}
             />
-            <label htmlFor={line.id}>{line.name} Line</label>
+            <label htmlFor={line.id}>{line.name}</label>
           </div>
         ))}
       </div>
