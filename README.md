@@ -6,5 +6,5 @@ The Demo site can be found here: https://tube-arrivals.web.app/
 
 ## Technologies Used
 
-React.js
-TfL API
+* React.js
+* TfL API
