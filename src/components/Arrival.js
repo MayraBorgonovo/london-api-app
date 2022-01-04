@@ -2,9 +2,13 @@ import React from "react";
 import classes from "./Arrival.module.css";
 
 const Arrival = (props) => {
-  let timeToArrival = Math.round(props.timeToStation / 60) + "min";
+  let timeToArrival = Math.round(props.timeToStation / 60);
 
-  if (timeToArrival === 0) {
+  if (timeToArrival >= 1) {
+    timeToArrival = timeToArrival + 'min';
+  }
+
+  if (timeToArrival < 1 && timeToArrival >= 0) {
     timeToArrival = "Now";
   }
 

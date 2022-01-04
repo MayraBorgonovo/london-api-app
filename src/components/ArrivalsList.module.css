@@ -8,8 +8,7 @@
 }
 
 .stations {
-  min-width: 10em;
-  max-width: 15em;
+  width: 15em;
   padding-left: 1em;
 }
 
@@ -33,4 +32,14 @@ input[type="radio"] {
 .stations input[type="radio"]:checked + label,
 .stations input[type="radio"]:focus + label {
   background: #ccc;
+}
+
+@media screen and (max-width: 576px) {
+  .arrivals {
+    margin: 4em 0 1em 1em;
+  }
+
+  .stations {
+    width: 8em;
+  }
 }

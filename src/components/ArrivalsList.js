@@ -13,14 +13,21 @@ const ArrivalsList = (props) => {
   const uniqueStations = [...new Set(stations)];
   const sortedStations = uniqueStations.sort();
 
-  // filter arrivals by station
-  let filteredResults = arrivals;
+  // filter arrivals by station and sort by time
+  let filteredResults = arrivals.sort(function(a, b) {
+    let keyA = a.data.timeToStation,
+    keyB = b.data.timeToStation;
+    // Compare the 2 dates
+    if (keyA < keyB) return -1;
+    if (keyA > keyB) return 1;
+    return 0;
+  });
+
   if (filteredStation !== "all") {
     filteredResults = arrivals.filter((item) => {
       return item.data.stationName === filteredStation;
     });
   }
-
 
   const dropdownChangeHandler = (event) => {
     setFilteredStation(event.target.value);
@@ -39,7 +46,7 @@ const ArrivalsList = (props) => {
               value={arrival}
               onChange={dropdownChangeHandler}
             />
-            <label htmlFor={arrival}>{arrival}</label>
+            <label htmlFor={arrival}>{arrival ? arrival.replace("Underground Station", '') : arrival}</label>
           </div>
         ))}
       </div>
